@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --color-paper: #f7f7f4;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-ink: #17181a;
+  --color-muted: #6b6d70;
+  --color-line: #e4e3de;
+  --color-accent: #3e7c6f;
+  --color-accent-ink: #ffffff;
+  --color-accent-soft: #e2ede9;
+  --color-danger: #b3462c;
+  --shadow-soft: 0 1px 2px rgba(23, 24, 26, 0.04), 0 8px 24px -12px rgba(23, 24, 26, 0.12);
+}
+
+html.dark {
+  --color-paper: #101113;
+  --color-surface: #1a1b1e;
+  --color-surface-raised: #202124;
+  --color-ink: #edeef0;
+  --color-muted: #97999e;
+  --color-line: #2b2c30;
+  --color-accent: #74bfad;
+  --color-accent-ink: #0d1210;
+  --color-accent-soft: #1e2b28;
+  --color-danger: #d97a5f;
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 28px -12px rgba(0, 0, 0, 0.55);
+}
+
+@theme {
+  --color-paper: var(--color-paper);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
+  --color-accent-soft: var(--color-accent-soft);
+  --color-danger: var(--color-danger);
+
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 8px;
+  border: 2px solid var(--color-paper);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
