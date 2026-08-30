@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { getHistory, clearHistory } from "../lib/history";
+import { getHistory, clearHistory } from "./../lib/history";
 
 function formatTime(ts) {
   return new Date(ts).toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short" });

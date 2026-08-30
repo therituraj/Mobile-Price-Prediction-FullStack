@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import PredictForm from "../components/PredictForm";
-import PriceDial from "../components/PriceDial";
-import PhoneList from "../components/PhoneList";
-import { predictPrice, getCompanies } from "../lib/api";
-import { pushHistory } from "../lib/history";
+import PredictForm from "./../components/PredictForm";
+import PriceDial from "./../components/PriceDial";
+import PhoneList from "./../components/PhoneList";
+import { predictPrice, getCompanies } from "./../lib/api";
+import { pushHistory } from "./../lib/history";
 
 export default function Predictor() {
   const [companies, setCompanies] = useState([]);
