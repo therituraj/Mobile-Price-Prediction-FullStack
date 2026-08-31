@@ -29,3 +29,12 @@ class PredictResponse(BaseModel):
     input_echo: PredictRequest
     recommendations: List[RecommendedPhone]
     recommendation_source: str  # "tavily+llm" | "tavily" | "local_fallback"
+
+class PredictV2Request(BaseModel):
+    rating: float
+    ram_gb: float
+    storage_gb: float
+    battery_mah: float
+    display_inches: float
+    refresh_hz: float
+    rear_camera_mp: float

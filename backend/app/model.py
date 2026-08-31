@@ -9,7 +9,6 @@ MODEL_PATH = os.path.join(DATA_DIR, "knn_mobile_model.pkl")
 SCALER_PATH = os.path.join(DATA_DIR, "scaler.pkl")
 COMPANIES_PATH = os.path.join(DATA_DIR, "companies.json")
 
-
 class PricePredictor:
     def __init__(self):
         if not os.path.exists(MODEL_PATH):
@@ -38,4 +37,39 @@ class PricePredictor:
         return round(float(predicted_price),2)
 
 
+MODE_V2_PATH = os.path.join(DATA_DIR, "mobile_price_prediction_model_v2_random_forest.pkl")
+
+
+class PredictorV2:
+    def __init__(self):
+        self.model = joblib.load(MODE_V2_PATH)
+
+    def predict(
+        self,
+        rating: float,
+        ram_gb: float,
+        storage_gb: float,
+        battery_mah: float,
+        display_inches: float,
+        refresh_hz: float,
+        rear_camera_mp: float,
+    ) -> float:
+
+        features = pd.DataFrame([{
+            "rating": rating,
+            "ram_gb": ram_gb,
+            "storage_gb": storage_gb,
+            "battery_mah": battery_mah,
+            "display_inches": display_inches,
+            "refresh_hz": refresh_hz,
+            "rear_camera_mp": rear_camera_mp,
+        }])
+
+        prediction = self.model.predict(features)
+
+        return round(float(prediction[0]), 2)
+
+
+
+predictor_v2 = PredictorV2()
 predictor = PricePredictor()

@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Predictor from "./pages/Predictor";
 import History from "./pages/History";
 import About from "./pages/About";
+import PredictorV2 from "./pages/ PredictPriceV2"
 
 function PageTransition({ children }) {
   const ref = useRef(null);
@@ -27,6 +28,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Predictor />} />
             <Route path="/history" element={<History />} />
+            <Route path="/predictv2" element={<PredictorV2 />} />
             <Route path="/about" element={<About />} />
           </Routes>
         </PageTransition>

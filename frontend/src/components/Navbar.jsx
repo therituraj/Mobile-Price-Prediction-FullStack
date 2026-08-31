@@ -21,6 +21,10 @@ export default function Navbar() {
           <NavLink to="/" end className={linkClass}>
             Predict
           </NavLink>
+          
+        <NavLink to="/predictv2" end className={linkClass}>
+          Predict <span className="py-0.5 px-2 bg-accent rounded-sm dark:text-white">v2</span> 
+        </NavLink>
           <NavLink to="/history" className={linkClass}>
             History
           </NavLink>
